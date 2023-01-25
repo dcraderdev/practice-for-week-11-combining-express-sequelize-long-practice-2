@@ -8,6 +8,9 @@ require('dotenv').config();
 // Express using json - DO NOT MODIFY
 app.use(express.json());
 
+const { Insect, Tree } = require('./db/models');
+
+
 // Connect router for trees API - DO NOT MODIFY
 const treesRouter = require('./routes/trees');
 app.use('/trees', treesRouter);
@@ -25,6 +28,7 @@ app.get('/', (req, res) => {
     res.json({
         message: "API server is running"
     });
+
 });
 
 // Custom error middleware (triggered via call to next(err)) - DO NOT MODIFY
@@ -43,5 +47,5 @@ app.use((req, res) => {
 });
 
 // Set port and listen for incoming requests - DO NOT MODIFY
-const port = 5000;
+const port = 5005;
 app.listen(port, () => console.log('Server is listening on port', port));
